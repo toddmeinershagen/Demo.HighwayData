@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Models\CustomerCharge.cs" />
     <Compile Include="Models\CustomerChargeExactMatch.cs" />
+    <Compile Include="Commands\AddCustomerChargeExactMatch.cs" />
     <Compile Include="Services\CustomerChargeService.cs" />
     <Compile Include="Providers\DisplayProvider.cs" />
     <Compile Include="Queries\ExactMatchesForCustomerCharges.cs" />

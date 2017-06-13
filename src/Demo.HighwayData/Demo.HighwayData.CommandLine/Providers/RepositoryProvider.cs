@@ -1,4 +1,5 @@
-﻿using Demo.HighwayData.CommandLine.Models;
+﻿using Demo.HighwayData.CommandLine.Commands;
+using Demo.HighwayData.CommandLine.Models;
 using Highway.Data;
 using Highway.Data.Contexts;
 
@@ -9,7 +10,9 @@ namespace Demo.HighwayData.CommandLine.Providers
         public IRepository GetRepository()
         {
             var context = new InMemoryDataContext();
-            context.Add(new CustomerChargeExactMatch
+            var repository = new Repository(context);
+
+            repository.Execute(new AddCustomerChargeExactMatch(new CustomerChargeExactMatch
             {
                 ProcedureCode = "P1",
                 UBCode = "U1",
@@ -17,8 +20,9 @@ namespace Demo.HighwayData.CommandLine.Providers
                 Description = "P1,U1,H1",
                 FacilityId = 1,
                 MatchId = "1"
-            });
-            context.Add(new CustomerChargeExactMatch
+            }));
+
+            repository.Execute(new AddCustomerChargeExactMatch(new CustomerChargeExactMatch
             {
                 ProcedureCode = "P2",
                 UBCode = "U2",
@@ -26,8 +30,9 @@ namespace Demo.HighwayData.CommandLine.Providers
                 Description = "P1,U2,H2",
                 FacilityId = 1,
                 MatchId = null
-            });
-            context.Add(new CustomerChargeExactMatch
+            }));
+
+            repository.Execute(new AddCustomerChargeExactMatch(new CustomerChargeExactMatch
             {
                 ProcedureCode = "P3",
                 UBCode = "U2",
@@ -35,10 +40,11 @@ namespace Demo.HighwayData.CommandLine.Providers
                 Description = "P1,U2,H2",
                 FacilityId = 1,
                 MatchId = "100"
-            });
-            context.Commit();
+            }));
 
-            return new Repository(context);
+            repository.Context.Commit();
+
+            return repository;
         }
     }
 }
