@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Demo.HighwayData.CommandLine.Models;
 
-namespace Demo.HighwayData.CommandLine
+namespace Demo.HighwayData.CommandLine.Providers
 {
     public class DisplayProvider
     {

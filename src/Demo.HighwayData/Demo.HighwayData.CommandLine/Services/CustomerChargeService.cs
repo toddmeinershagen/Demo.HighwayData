@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Demo.HighwayData.CommandLine.Models;
+using Demo.HighwayData.CommandLine.Queries;
 using Highway.Data;
 
-namespace Demo.HighwayData.CommandLine
+namespace Demo.HighwayData.CommandLine.Services
 {
     public class CustomerChargeService
     {

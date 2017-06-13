@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Demo.HighwayData.CommandLine.Models;
 using Highway.Data;
 
-namespace Demo.HighwayData.CommandLine
+namespace Demo.HighwayData.CommandLine.Queries
 {
     public class ExactMatchesForCustomerCharges : Query<CustomerChargeExactMatch>
     {

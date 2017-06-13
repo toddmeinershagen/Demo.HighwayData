@@ -1,4 +1,4 @@
-﻿namespace Demo.HighwayData.CommandLine
+﻿namespace Demo.HighwayData.CommandLine.Models
 {
     public class CustomerCharge
     {

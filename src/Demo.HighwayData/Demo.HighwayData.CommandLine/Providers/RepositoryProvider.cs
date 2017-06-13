@@ -1,7 +1,8 @@
-﻿using Highway.Data;
+﻿using Demo.HighwayData.CommandLine.Models;
+using Highway.Data;
 using Highway.Data.Contexts;
 
-namespace Demo.HighwayData.CommandLine
+namespace Demo.HighwayData.CommandLine.Providers
 {
     public class RepositoryProvider
     {
