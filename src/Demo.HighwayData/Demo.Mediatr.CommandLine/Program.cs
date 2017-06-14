@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Demo.Core.Models;
+using Demo.Core.Providers;
+using Demo.Mediatr.CommandLine.Providers;
+using Demo.Mediatr.CommandLine.Services;
+using System;
 using System.Collections.Generic;
-using Demo.HighwayData.CommandLine.Providers;
-using Demo.HighwayData.CommandLine.Services;
-using Demo.Core.Models;
 
-namespace Demo.HighwayData.CommandLine
+namespace Demo.Mediatr.CommandLine
 {
     class Program
     {
@@ -19,12 +20,12 @@ namespace Demo.HighwayData.CommandLine
             var charges = new List<CustomerCharge>
             {
                 new CustomerCharge {ProcedureCode = "P1"},
-                new CustomerCharge { ProcedureCode = "P2" }, 
+                new CustomerCharge { ProcedureCode = "P2" },
                 new CustomerCharge { ProcedureCode = "P3" }
             };
-            var matches = service.GetExactMatches(charges).Result;
+            var response = service.GetExactMatches(charges).Result;
 
-            new DisplayProvider().DisplayMatches(matches);
+            new DisplayProvider().DisplayMatches(response.Matches);
             Console.ReadLine();
         }
     }

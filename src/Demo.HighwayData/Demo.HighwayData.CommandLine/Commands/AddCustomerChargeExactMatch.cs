@@ -1,4 +1,4 @@
-﻿using Demo.HighwayData.CommandLine.Models;
+﻿using Demo.Core.Models;
 using Highway.Data;
 
 namespace Demo.HighwayData.CommandLine.Commands

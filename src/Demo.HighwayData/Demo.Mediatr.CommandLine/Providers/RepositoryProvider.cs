@@ -1,18 +1,16 @@
 ﻿using Demo.Core.Models;
-using Demo.HighwayData.CommandLine.Commands;
-using Highway.Data;
-using Highway.Data.Contexts;
+using Demo.Mediatr.CommandLine.Handlers;
+using Demo.Mediatr.CommandLine.Models;
+using MediatR;
+using System.Linq;
 
-namespace Demo.HighwayData.CommandLine.Providers
+namespace Demo.Mediatr.CommandLine.Providers
 {
     public class RepositoryProvider
     {
-        public IRepository GetRepository()
+        public IAsyncRequestHandler<GetCustomerChargeExactMatchRequest, GetCustomerChargeExactMatchResponse> GetRepository()
         {
-            var context = new InMemoryDataContext();
-            var repository = new Repository(context);
-
-            repository.Execute(new AddCustomerChargeExactMatch(new CustomerChargeExactMatch
+            var matches = new[] {new CustomerChargeExactMatch
             {
                 ProcedureCode = "P1",
                 UBCode = "U1",
@@ -20,9 +18,8 @@ namespace Demo.HighwayData.CommandLine.Providers
                 Description = "P1,U1,H1",
                 FacilityId = 1,
                 MatchId = "1"
-            }));
-
-            repository.Execute(new AddCustomerChargeExactMatch(new CustomerChargeExactMatch
+            },
+            new CustomerChargeExactMatch
             {
                 ProcedureCode = "P2",
                 UBCode = "U2",
@@ -30,9 +27,8 @@ namespace Demo.HighwayData.CommandLine.Providers
                 Description = "P1,U2,H2",
                 FacilityId = 1,
                 MatchId = null
-            }));
-
-            repository.Execute(new AddCustomerChargeExactMatch(new CustomerChargeExactMatch
+            },
+            new CustomerChargeExactMatch
             {
                 ProcedureCode = "P3",
                 UBCode = "U2",
@@ -40,11 +36,9 @@ namespace Demo.HighwayData.CommandLine.Providers
                 Description = "P1,U2,H2",
                 FacilityId = 1,
                 MatchId = "100"
-            }));
+            } };
 
-            repository.Context.Commit();
-
-            return repository;
+            return new GetCustomerChargeExactMatch(matches.ToList());
         }
     }
 }

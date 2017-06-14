@@ -1,4 +1,4 @@
-namespace Demo.HighwayData.CommandLine.Models
+namespace Demo.Models
 {
     public class CustomerChargeExactMatch : CustomerCharge
     {

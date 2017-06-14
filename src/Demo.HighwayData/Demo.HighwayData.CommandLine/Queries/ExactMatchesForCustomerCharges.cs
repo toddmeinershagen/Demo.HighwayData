@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Demo.HighwayData.CommandLine.Models;
 using Highway.Data;
+using Demo.Core.Models;
 
 namespace Demo.HighwayData.CommandLine.Queries
 {

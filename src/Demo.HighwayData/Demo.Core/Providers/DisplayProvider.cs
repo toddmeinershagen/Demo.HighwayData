@@ -1,8 +1,8 @@
-using Demo.Core.Models;
 using System;
 using System.Collections.Generic;
+using Demo.Core.Models;
 
-namespace Demo.HighwayData.CommandLine.Providers
+namespace Demo.Core.Providers
 {
     public class DisplayProvider
     {
